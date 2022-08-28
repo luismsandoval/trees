@@ -1,26 +1,29 @@
-function preOrder(root) {
-  // Root, Left, Right
-  // Return a single array
-  let traversal = [];
-  traversal.push(root.value); // Root
 
-  if (root.left) {
-    // Left
-    let leftTraversal = preOrder(root.left);
-    traversal = traversal.concat(leftTraversal);
-  }
+// As a function //
 
-  // Right
-  if (root.right) {
-    let rightTraversal = preOrder(root.right);
-    traversal = traversal.concat(rightTraversal);
-  }
+// function preOrder(root) {
+//   // Root, Left, Right
+//   // Return a single array
+//   let traversal = [];
+//   traversal.push(root.value); // Root
 
-  return traversal;
-}
+//   if (root.left) {
+//     // Left
+//     let leftTraversal = preOrder(root.left);
+//     traversal = traversal.concat(leftTraversal);
+//   }
 
-const preOrderOneLine = (root) =>
-  root ? [root.value, ...preOrder(root.left), ...preOrder(root.right)] : [];
+//   // Right
+//   if (root.right) {
+//     let rightTraversal = preOrder(root.right);
+//     traversal = traversal.concat(rightTraversal);
+//   }
+
+//   return traversal;
+// }
+
+// const preOrderOneLine = (root) =>
+//   root ? [root.value, ...preOrder(root.left), ...preOrder(root.right)] : [];
 
 class Node {
   constructor(value, left, right) {
@@ -35,8 +38,8 @@ class Node {
     let traversal = [];
     traversal.push(this.value); // Root
 
+    // Left
     if (this.left) {
-      // Left
       let leftTraversal = this.left.preOrder();
       traversal = traversal.concat(leftTraversal);
     }
@@ -50,8 +53,46 @@ class Node {
     return traversal;
   }
 
-  inOrder() {}
-  postOrder() {}
+  inOrder() {
+    // Left, Root, Right
+    let traversal = [];
+
+    // Left
+    if (this.left) {
+      let leftTraversal = this.left.inOrder();
+      traversal = traversal.concat(leftTraversal);
+    }
+
+    traversal.push(this.value); // Root
+
+    // Right
+    if (this.right) {
+      let rightTraversal = this.right.inOrder();
+      traversal = traversal.concat(rightTraversal);
+    }
+
+    return traversal;
+  }
+  postOrder() {
+    // Left, Right, Root
+    let traversal = [];
+
+    // Left
+    if (this.left) {
+      let leftTraversal = this.left.postOrder();
+      traversal = traversal.concat(leftTraversal);
+    }
+
+    // Right
+    if (this.right) {
+      let rightTraversal = this.right.postOrder();
+      traversal = traversal.concat(rightTraversal);
+    }
+
+    traversal.push(this.value); // Root
+
+    return traversal;
+  }
 }
 
 class BinaryTree {
@@ -60,11 +101,14 @@ class BinaryTree {
   }
 
   preOrder() {
-    // return this.root.preOrder();
-    return preOrder(this.root);
+    return this.root.preOrder();
   }
-  inOrder() {}
-  postOrder() {}
+  inOrder() {
+    return this.root.inOrder();
+  }
+  postOrder() {
+    return this.root.postOrder();
+  }
 }
 
 module.exports = { Node, BinaryTree };
