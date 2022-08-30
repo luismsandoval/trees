@@ -26,12 +26,12 @@ class BinarySearchTree extends BinaryTree {
       }
     }
   }
+
   contains(number) {
     if (!this.root) return false;
 
     let current = this.root;
-    const loop = true;
-    while (loop) {
+    while (true) {
       if (current?.value === number) return true;
       if (current?.value > number) {
         current = current.left;
@@ -39,6 +39,26 @@ class BinarySearchTree extends BinaryTree {
         current = current.right;
       } else return false;
     }
+  }
+
+  split() {
+    if (!this.root) return null;
+    let storedNodes = this.inOrder();
+    console.log("inOrder nodes: ", storedNodes);
+
+    let balanced = new Node(
+      storedNodes[storedNodes.length / 2],
+      undefined,
+      undefined
+    );
+    this.root = balanced;
+    for (const i of storedNodes.splice(0, storedNodes.length / 2)) {
+      this.add(i);
+    }
+    for (const i of storedNodes) {
+      this.add(i);
+    }
+    console.log("new root: ", this.root);
   }
 }
 
