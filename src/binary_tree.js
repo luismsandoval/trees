@@ -1,4 +1,3 @@
-
 // As a function //
 
 // function preOrder(root) {
@@ -70,9 +69,9 @@ class Node {
       let rightTraversal = this.right.inOrder();
       traversal = traversal.concat(rightTraversal);
     }
-
     return traversal;
   }
+
   postOrder() {
     // Left, Right, Root
     let traversal = [];
