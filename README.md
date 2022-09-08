@@ -60,3 +60,12 @@
 ### split()
 
 - rebalances a standard Binary search tree into an AA tree.
+
+### max()
+
+- returns the maximum value in a Binary Search Tree
+
+## Whiteboard
+
+### Code Challenge 16 - Find the max value in a binary tree
+![cc16 whiteboard](img/cc16.jpg)
