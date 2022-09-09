@@ -65,7 +65,16 @@
 
 - returns the maximum value in a Binary Search Tree
 
+### breadthFirst(tree)
+
+- takes a binary tree as an argument and returns all of the values in the tree, in a level order.
+
 ## Whiteboard
 
 ### Code Challenge 16 - Find the max value in a binary tree
+
 ![cc16 whiteboard](img/cc16.jpg)
+
+### Code Challenge 17 - Return the values of a tree in a level order
+
+![cc17 whiteboard](img/cc17.jpg)
