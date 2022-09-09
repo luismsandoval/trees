@@ -24,6 +24,29 @@
 // const preOrderOneLine = (root) =>
 //   root ? [root.value, ...preOrder(root.left), ...preOrder(root.right)] : [];
 
+function breadthFirst(tree) {
+  if (!tree.root) return null;
+
+  let queue = [];
+  let list = [];
+  queue.push(tree.root);
+
+  while (queue.length !== 0) {
+    let temp = queue.shift();
+    list.push(temp.value);
+
+    if (temp.left) {
+      queue.push(temp.left);
+    }
+
+    if (temp.right) {
+      queue.push(temp.right);
+    }
+  }
+  console.log("list", list);
+  return list;
+}
+
 class Node {
   constructor(value, left, right) {
     this.value = value;
@@ -110,4 +133,4 @@ class BinaryTree {
   }
 }
 
-module.exports = { Node, BinaryTree };
+module.exports = { Node, BinaryTree, breadthFirst };

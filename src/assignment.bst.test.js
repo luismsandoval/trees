@@ -10,7 +10,7 @@ describe("Binary Search Tree", () => {
     tree2.add(i);
   }
 
-  console.log(JSON.stringify(tree, undefined, " "));
+  // console.log(JSON.stringify(tree, undefined, " "));
 
   it("adds & maintains items in order", () => {
     expect(tree.inOrder()).toEqual([1, 2, 3, 5, 6, 7, 9, 11]);

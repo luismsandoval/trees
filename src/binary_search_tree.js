@@ -44,7 +44,6 @@ class BinarySearchTree extends BinaryTree {
   split() {
     if (!this.root) return null;
     let storedNodes = this.inOrder();
-    console.log("inOrder nodes: ", storedNodes);
 
     let balanced = new Node(
       storedNodes[storedNodes.length / 2],
@@ -58,7 +57,6 @@ class BinarySearchTree extends BinaryTree {
     for (const i of storedNodes) {
       this.add(i);
     }
-    console.log("new root: ", this.root);
   }
 
   max() {
