@@ -43,7 +43,6 @@ function breadthFirst(tree) {
       queue.push(temp.right);
     }
   }
-  console.log("list", list);
   return list;
 }
 
