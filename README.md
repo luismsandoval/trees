@@ -65,6 +65,10 @@
 
 - returns the maximum value in a Binary Search Tree
 
+### addOdd()
+
+- returns the sum of all odd values in a binary search tree
+
 ### breadthFirst(tree)
 
 - takes a binary tree as an argument and returns all of the values in the tree, in a level order.
@@ -78,3 +82,7 @@
 ### Code Challenge 17 - Return the values of a tree in a level order
 
 ![cc17 whiteboard](img/cc17.jpg)
+
+### Code Challenge 19 - Write a function to find the sum of all odd numbers in a binary search tree
+
+![cc17 whiteboard](img/cc19.jpg)

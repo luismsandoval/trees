@@ -1,4 +1,4 @@
-const { BinarySearchTree } = require("./binary_search_tree.js");
+const { BinarySearchTree, addOdd } = require("./binary_search_tree.js");
 
 describe("Binary Search Tree", () => {
   const tree = new BinarySearchTree();
@@ -28,5 +28,12 @@ describe("Binary Search Tree", () => {
   it("finds the max value in a tree", () => {
     expect(tree.max()).toEqual(11);
     expect(tree2.max()).toEqual(15);
+  });
+
+  it("adds all of the odd values in tree", () => {
+    expect(addOdd(tree)).toEqual(36);
+    expect(addOdd(tree2)).toEqual(24);
+    expect(tree.addOdd()).toEqual(36);
+    expect(tree2.addOdd()).toEqual(24);
   });
 });

@@ -72,6 +72,36 @@ class BinarySearchTree extends BinaryTree {
     }
     return currentMax;
   }
+
+  addOdd() {
+    if (!this.root) return null;
+
+    let count = 0;
+    this.addOdd(this.root.left);
+
+    if (this.root.value % 2 !== 0) {
+      count += this.root.value;
+    }
+    console.log("count: ", count);
+
+    this.addOdd(this.root.right);
+    return count;
+  }
 }
 
-module.exports = { BinarySearchTree };
+function addOdd(tree) {
+  if (!tree) return null;
+
+  let count;
+  addOdd(tree.left);
+
+  if (tree.value % 2 !== 0) {
+    count += tree.value;
+  }
+
+  addOdd(tree.right);
+
+  return count;
+}
+
+module.exports = { BinarySearchTree, addOdd};
